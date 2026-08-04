@@ -216,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // ⚠️ CAMBIA ESTE NÚMERO POR EL TUYO CON CÓDIGO DE PAÍS (Sin el signo +)
             // Ejemplo para Chile (+569...): '56912345678'
-            const phoneNumber = '56940643852'; 
+            const phoneNumber = '56958709091'; 
             
             const name = document.getElementById('name').value;
             const diet = document.getElementById('diet').value || 'Ninguna';
