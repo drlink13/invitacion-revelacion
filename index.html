@@ -14,10 +14,13 @@
 </head>
 <body>
 
-    <!-- Audios (Placeholders for now) -->
-    <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/01/21/audio_31743c58bb.mp3?filename=lullaby-of-the-stars-116174.mp3" loop></audio>
-    <audio id="open-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_29fb635e9f.mp3?filename=paper-rip-3-82548.mp3"></audio>
-    <audio id="success-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3"></audio>
+    <!-- Audios con opción de respaldo (Fallback) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="audio/musica.mp3" type="audio/mpeg">
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="open-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_29fb635e9f.mp3?filename=paper-rip-3-82548.mp3" preload="auto"></audio>
+    <audio id="success-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3" preload="auto"></audio>
 
     <!-- Preloader -->
     <div id="preloader">
