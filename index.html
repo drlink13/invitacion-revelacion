@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación - Niño o Niña</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Audios (Placeholders for now) -->
+    <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/01/21/audio_31743c58bb.mp3?filename=lullaby-of-the-stars-116174.mp3" loop></audio>
+    <audio id="open-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_29fb635e9f.mp3?filename=paper-rip-3-82548.mp3"></audio>
+    <audio id="success-sound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3?filename=success-1-6297.mp3"></audio>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Preparando una sorpresa...</p>
+    </div>
+
+    <!-- Floating Buttons -->
+    <button id="music-toggle" class="floating-btn music-btn">🔊</button>
+    <button id="go-top" class="floating-btn top-btn hidden">
+        <img src="teddy.jpg" alt="Subir" style="width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; opacity: 0.8;">
+    </button>
+
+    <!-- Floating Background Elements (Parallax) -->
+    <div class="stars" id="stars"></div>
+    <div class="clouds" id="clouds">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+    </div>
+    <div class="bears-decoration" id="floating-bears">
+        <img src="teddy.jpg" alt="Osito" class="floating-bear bear-top-left">
+        <img src="teddy.jpg" alt="Osito" class="floating-bear bear-bottom-right">
+    </div>
+
+    <!-- Envelope Overlay -->
+    <div id="envelope-container" class="envelope-wrapper">
+        <div class="envelope" id="envelope">
+            <div class="envelope-flap" id="flap"></div>
+            <div class="envelope-body">
+                <div class="envelope-front"></div>
+                <div class="envelope-seal">
+                    <div class="wax-seal">
+                        <span>Ábreme</span>
+                    </div>
+                </div>
+            </div>
+            <div class="envelope-paper">
+                <div class="paper-content">
+                    <p class="paper-title">Estás Invitado...</p>
+                </div>
+            </div>
+        </div>
+        <div class="tap-text">Toca el sobre para abrir</div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        
+        <div class="invitation-details">
+            <h1 class="title">Niño o Niña</h1>
+            
+            <!-- Video -->
+            <div class="video-container">
+                <video src="eco.mp4" controls autoplay muted loop playsinline class="eco-video">
+                    Tu navegador no soporta videos.
+                </video>
+            </div>
+            
+            <p class="message">MIS PAPIS ESTÁN MUY FELICES POR MI LLEGADA Y LES GUSTARÍA QUE NOS ACOMPAÑES A SABER SI SOY NIÑO O NIÑA.</p>
+            
+            <div class="date-row">
+                <div class="date-part">Sábado</div>
+                <div class="date-number">05</div>
+                <div class="date-part">Septiembre</div>
+            </div>
+            
+            <p class="time">5:30 pm</p>
+            <p class="location">Lugar: <a href="https://maps.google.com/?q=Teresa+vial+1139+san+miguel" target="_blank" class="maps-link">Teresa vial 1139 san miguel 📍</a></p>
+            
+            <div class="info-box">
+                <p class="dresscode">Vestimenta: Color blanco / Beige</p>
+                <div class="gifts">
+                    <p>Si crees que soy</p>
+                    <p>Niña: Toallitas</p>
+                    <p>Niño: Pañales</p>
+                </div>
+            </div>
+            
+            <p class="te-esperamos">¡Te esperamos!</p>
+        </div>
+        
+        <!-- 3D Countdown -->
+        <section class="countdown-section">
+            <h2 class="cursive-title">Faltan:</h2>
+            <div class="countdown-container" id="countdown">
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="days-card">
+                        <div class="flip-card-front" id="days-front">00</div>
+                        <div class="flip-card-back" id="days-back">00</div>
+                    </div>
+                    <p>Días</p>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="hours-card">
+                        <div class="flip-card-front" id="hours-front">00</div>
+                        <div class="flip-card-back" id="hours-back">00</div>
+                    </div>
+                    <p>Horas</p>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="mins-card">
+                        <div class="flip-card-front" id="mins-front">00</div>
+                        <div class="flip-card-back" id="mins-back">00</div>
+                    </div>
+                    <p>Min</p>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner" id="secs-card">
+                        <div class="flip-card-front" id="secs-front">00</div>
+                        <div class="flip-card-back" id="secs-back">00</div>
+                    </div>
+                    <p>Seg</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Form -->
+        <section class="rsvp-section">
+            <h2 class="cursive-title">Confirmar Asistencia</h2>
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="input-group">
+                    <label for="name">Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required placeholder="Ingresa tu nombre">
+                </div>
+                <div class="input-group">
+                    <label for="diet">Alergias o dieta especial (Opcional):</label>
+                    <input type="text" id="diet" name="diet" placeholder="Ej. Ninguna, Vegetariano...">
+                </div>
+                
+                <div class="input-group">
+                    <label>¿Qué crees que será?</label>
+                    <div class="radio-group row-layout">
+                        <label class="radio-label">
+                            <input type="radio" name="team" value="boy" required>
+                            <span class="custom-radio"></span>
+                            Team Niño
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="team" value="girl" required>
+                            <span class="custom-radio"></span>
+                            Team Niña
+                        </label>
+                    </div>
+                </div>
+
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="attendance" value="yes" required>
+                        <span class="custom-radio"></span>
+                        Sí, confirmo asistencia
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="attendance" value="no" required>
+                        <span class="custom-radio"></span>
+                        No podré asistir
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Confirmación</button>
+            </form>
+            <div id="form-message" class="hidden message-box"></div>
+        </section>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
